@@ -1,0 +1,8 @@
+assets/ip/xiao-a/
+output/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.DS_Store
+

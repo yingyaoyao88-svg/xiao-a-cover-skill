@@ -1,0 +1,7 @@
+interface:
+  display_name: "生成小A封面图"
+  short_description: "从标题生成可替换人物IP、原生3:4构图的抖音封面图片"
+  default_prompt: "Use $xiao-a-cover to generate a 3:4 Douyin cover from my title."
+policy:
+  allow_implicit_invocation: true
+
