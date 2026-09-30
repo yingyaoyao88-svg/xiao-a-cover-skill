@@ -31,6 +31,8 @@ def finalize_cover(
 
     if not source.is_file():
         raise CoverFinalizationError(f"source image does not exist: {source}")
+    if destination.suffix.lower() != ".png":
+        raise CoverFinalizationError("destination must use the .png extension for PNG output")
     if destination.exists() and not overwrite:
         raise CoverFinalizationError(f"destination already exists: {destination}")
     if tolerance < 0:

@@ -71,6 +71,15 @@ class FinalizeCoverTests(unittest.TestCase):
 
         self.assertEqual(destination.read_bytes(), before)
 
+    def test_non_png_destination_is_rejected(self):
+        source = self.make_image("source.png", (768, 1024))
+        destination = self.root / "cover.jpg"
+
+        with self.assertRaisesRegex(CoverFinalizationError, "PNG"):
+            finalize_cover(source, destination)
+
+        self.assertFalse(destination.exists())
+
 
 if __name__ == "__main__":
     unittest.main()
