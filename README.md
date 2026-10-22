@@ -173,6 +173,17 @@ xiao-a-cover/
 
 ---
 
+## 💬 交流与合作
+
+欢迎扫码添加作者微信（微信号：`15038098595`，添加请备注 GitHub 项目名），交流 AI 视觉生图、IP 固化设计、自媒体自动化工作流或探讨商业合作：
+
+<div align="center">
+  <img src="https://imaomyying.com/wechat-qrcode.jpg" width="220" alt="小A 微信二维码" />
+  <p><b>扫码添加作者微信好友（微信号：15038098595）</b></p>
+</div>
+
+---
+
 ## 📄 开源协议
 
 本项目基于 [MIT License](LICENSE) 协议开源。
