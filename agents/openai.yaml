@@ -1,7 +1,7 @@
 interface:
   display_name: "生成小A封面图"
-  short_description: "先导入自己的人物三视图，再选四种不同互动场景，生成原生3:4封面"
-  default_prompt: "Use $xiao-a-cover to import my character turnaround, help me choose an interaction style, and generate a 3:4 cover."
+  short_description: "先导入自己的三视图，再选不同风格、排版和色调，生成原生3:4封面"
+  default_prompt: "Use $xiao-a-cover to import my character turnaround, help me choose a visual style and palette, and generate a 3:4 cover."
 policy:
   allow_implicit_invocation: true
 

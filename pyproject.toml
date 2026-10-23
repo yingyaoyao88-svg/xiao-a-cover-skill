@@ -1,7 +1,7 @@
 [project]
 name = "xiao-a-cover-skill"
-version = "2.0.0"
-description = "Create personal-IP 3:4 covers after turnaround import and interaction-style selection"
+version = "2.1.0"
+description = "Create personal-IP 3:4 covers with four distinct styles, layouts and palettes"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"

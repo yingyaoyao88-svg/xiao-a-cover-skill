@@ -8,10 +8,10 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 SHOWCASE_SHA256 = {
-    "docs/showcase/codex-touch-screen.png": "06691e38d191723a5e8dcb4e2f1b8048960cb0285e2d4c7936eed00746f4a661",
-    "docs/showcase/codex-result-in-hand.png": "b4264f5c02b523cdba283aa1cda97bfb2752e603b82027b8831e4cc03c00641d",
-    "docs/showcase/codex-command-desk.png": "3ed249ef45455906cef75a19954cb57a1d2ed7ce8d66d67b2023b034086b645c",
-    "docs/showcase/codex-cross-screen-drag.png": "4581c4c563b1060cc10c134b6e763e8100acdac3edd41f739ee1d02904a1e3ce",
+    "docs/showcase/codex-touch-screen.png": "60217e81970900c581fc3d034bf732d4d69705d7c04d27c2af4fd237f41ca3af",
+    "docs/showcase/codex-result-in-hand.png": "f8fba937ac937da3edcfe6d4424638d98b922a065542fc554a346f61c118ce91",
+    "docs/showcase/codex-command-desk.png": "c06697e00e5d74298da36f74b45fa330d8b3d499f654a56422f89fce6adb4166",
+    "docs/showcase/codex-cross-screen-drag.png": "c1ffb71cc83336b8114d51d562f8c8805960054a5495cb75a05ccaee0f85fc75",
 }
 FILES = (
     "SKILL.md", "README.md", "使用说明.md", ".gitignore", "requirements.txt",

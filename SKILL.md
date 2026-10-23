@@ -1,6 +1,6 @@
 ---
 name: xiao-a-cover
-description: Create personal-IP Douyin covers after importing the user's character turnaround and choosing one of four distinct warm-white black-orange interaction scenes.
+description: Create personal-IP Douyin covers after importing the user's character turnaround and choosing one of four distinct visual styles, layouts, and color palettes.
 ---
 
 # 人物 IP 封面：先导入人物，再选样式
@@ -15,9 +15,9 @@ description: Create personal-IP Douyin covers after importing the user's charact
 
 ## 共同框架与不同互动
 
-共同保留原生 3:4、1080×1440 PNG、醒目的标题与副标、突出的真人、暖白/黑色/鲜橙色骨架和清晰交付成果。布局、镜头与动作必须随所选样式改变：A 左侧人物触控右侧大屏；B 人物居中手托成果；C 俯视桌面实际操作；D 从平板向手机拖拽成果。演示必须与指尖、掌心、键盘操作或拖拽动作有明确联系，而不是人物旁边独立堆放卡片。
+共同保留原生 3:4、1080×1440 PNG、醒目的文案、同一真人身份和清晰的任务演示。四个方案同时改变风格、排版和色调：A 暖白黑橙科技，左上平面标题、右侧人物触控；B 暗紫电影质感，人物居中、底部大标题；C 薄荷绿极简，俯视工作台、左侧三行标题；D 酒红复古拼贴，左侧真人、右上字阶、底部撕纸字带。演示与指尖、双手、键盘或抽取卡片动作融合。
 
-不要求每种样式都有电脑与手机，也不把人物固定在右侧。用户要求四种效果时，四张必须在动作、视角、构图、演示关系上有实质差别，只换字体或材质不算新样式。
+不要求每种样式都有电脑与手机，也不固定人物位置、标题位置或共同配色。用户要求四种效果时，四张必须在风格、排版、色调、动作与演示关系上有实质差别，不能统一套暖白黑橙模板后仅更换材质。
 
 人物身份、发型、服装和配饰以使用者自己的三视图为准，不能把作者的性别、脸型、发型或衣服写死。只有经用户明确要求才改变其人物设定。
 
