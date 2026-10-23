@@ -1,12 +1,12 @@
 [project]
 name = "xiao-a-cover-skill"
-version = "1.0.0"
-description = "Generate 3:4 Douyin cover images with replaceable character IP"
+version = "2.0.0"
+description = "Create personal-IP 3:4 covers after turnaround import and interaction-style selection"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 dependencies = [
-    "Pillow>=11.0,<12.0",
+    "Pillow>=9.1",
 ]
 
 [project.optional-dependencies]

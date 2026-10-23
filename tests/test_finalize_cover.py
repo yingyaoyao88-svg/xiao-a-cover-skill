@@ -1,84 +1,56 @@
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
-from scripts.finalize_cover import CoverFinalizationError, finalize_cover
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from finalize_cover import finalize_cover
 
 
 class FinalizeCoverTests(unittest.TestCase):
-    def setUp(self):
-        self.temp_dir = tempfile.TemporaryDirectory()
-        self.root = Path(self.temp_dir.name)
+    def test_resizes_whole_native_three_by_four_image(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp) / "source.png"
+            target = Path(tmp) / "cover.png"
+            image = Image.new("RGB", (1086, 1448), "white")
+            draw = ImageDraw.Draw(image)
+            draw.rectangle((0, 0, 31, 31), fill=(255, 0, 0))
+            draw.rectangle((1054, 1416, 1085, 1447), fill=(0, 0, 255))
+            image.save(source)
 
-    def tearDown(self):
-        self.temp_dir.cleanup()
+            result = finalize_cover(source, target)
 
-    def make_image(self, relative_path: str, size: tuple[int, int]) -> Path:
-        path = self.root / relative_path
-        path.parent.mkdir(parents=True, exist_ok=True)
-        Image.new("RGB", size, "white").save(path)
-        return path
+            with Image.open(target) as output:
+                self.assertEqual(output.size, (1080, 1440))
+                self.assertEqual(output.getpixel((0, 0)), (255, 0, 0))
+                self.assertEqual(output.getpixel((1079, 1439)), (0, 0, 255))
+            self.assertFalse(result["cropped"])
 
-    def test_exact_three_by_four_is_resized_without_crop(self):
-        source = self.make_image("source.png", (768, 1024))
-        destination = self.root / "cover.png"
+    def test_rejects_wrong_aspect_ratio(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp) / "source.png"
+            target = Path(tmp) / "cover.png"
+            Image.new("RGB", (1024, 1536), "white").save(source)
 
-        result = finalize_cover(source, destination)
+            with self.assertRaises(ValueError):
+                finalize_cover(source, target)
+            self.assertFalse(target.exists())
 
-        with Image.open(destination) as output:
-            self.assertEqual(output.size, (1080, 1440))
-        self.assertEqual(result["source_size"], [768, 1024])
-        self.assertEqual(result["final_size"], [1080, 1440])
-        self.assertFalse(result["cropped"])
+    def test_does_not_overwrite_without_opt_in(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp) / "source.png"
+            target = Path(tmp) / "cover.png"
+            Image.new("RGB", (1086, 1448), "white").save(source)
+            target.write_bytes(b"existing")
 
-    def test_small_ratio_error_within_tolerance_is_accepted(self):
-        source = self.make_image("near.png", (750, 1001))
-        destination = self.root / "near-cover.png"
-
-        result = finalize_cover(source, destination)
-
-        self.assertTrue(destination.exists())
-        self.assertLessEqual(result["ratio_error"], 0.002)
-
-    def test_non_three_by_four_image_is_rejected_without_output(self):
-        source = self.make_image("wide.png", (1600, 900))
-        destination = self.root / "must-not-exist.png"
-
-        with self.assertRaisesRegex(CoverFinalizationError, "3:4"):
-            finalize_cover(source, destination)
-
-        self.assertFalse(destination.exists())
-
-    def test_unicode_and_space_paths_are_supported(self):
-        source = self.make_image("中文 目录/原图.png", (1080, 1440))
-        destination = self.root / "输出 目录" / "封面.png"
-
-        finalize_cover(source, destination)
-
-        self.assertTrue(destination.exists())
-        with Image.open(destination) as output:
-            self.assertEqual(output.size, (1080, 1440))
-
-    def test_existing_destination_is_not_overwritten_by_default(self):
-        source = self.make_image("source.png", (768, 1024))
-        destination = self.make_image("existing.png", (20, 20))
-        before = destination.read_bytes()
-
-        with self.assertRaisesRegex(CoverFinalizationError, "already exists"):
-            finalize_cover(source, destination)
-
-        self.assertEqual(destination.read_bytes(), before)
-
-    def test_non_png_destination_is_rejected(self):
-        source = self.make_image("source.png", (768, 1024))
-        destination = self.root / "cover.jpg"
-
-        with self.assertRaisesRegex(CoverFinalizationError, "PNG"):
-            finalize_cover(source, destination)
-
-        self.assertFalse(destination.exists())
+            with self.assertRaises(FileExistsError):
+                finalize_cover(source, target)
+            self.assertEqual(target.read_bytes(), b"existing")
 
 
 if __name__ == "__main__":
