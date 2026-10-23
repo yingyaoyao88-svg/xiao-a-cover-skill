@@ -28,6 +28,20 @@
 
 </div>
 
+## 真人互动封面效果展示
+
+同一人物、同一标题「codex实战落地用法」，通过不同动作、镜头视角和演示内容的结合，展示四种封面效果。图片均为原生 3:4 构图、1080×1440 PNG，点击可查看完整尺寸。
+
+| A · 触控大屏 | B · 手托成果 |
+| :---: | :---: |
+| <a href="docs/showcase/codex-touch-screen.png"><img src="docs/showcase/codex-touch-screen.png" width="320" alt="触控大屏：人物侧身点击透明屏幕，指尖触发任务流程" /></a> | <a href="docs/showcase/codex-result-in-hand.png"><img src="docs/showcase/codex-result-in-hand.png" width="320" alt="手托成果：人物居中，文档和成果卡从掌心展开" /></a> |
+| 侧身触控，指尖与任务流程直接互动。 | 居中近景，掌心托起可视化交付成果。 |
+| **C · 桌面指挥台** | **D · 跨屏拖拽** |
+| <a href="docs/showcase/codex-command-desk.png"><img src="docs/showcase/codex-command-desk.png" width="320" alt="桌面指挥台：俯视工作台，人物实际操作笔记本电脑" /></a> | <a href="docs/showcase/codex-cross-screen-drag.png"><img src="docs/showcase/codex-cross-screen-drag.png" width="320" alt="跨屏拖拽：人物捏住成果卡，从平板向手机传递" /></a> |
+| 俯视工作台，双手操作与结果面板相融合。 | 动态跨屏，手指、成果卡和平板手机形成完整动作。 |
+
+四张成品已获作者授权用于公开展示。使用 Skill 时，请导入你自己的人物三视图；作者三视图和原视频保存在本地，不随仓库提供。更多图片说明见 [展示图目录](docs/showcase/README.md)。
+
 ## 💡 为什么需要这个 Skill？
 
 在小红书、抖音等以竖版视觉流为主的自媒体平台中，**封面点击率（CTR）直接决定了内容的生死**。然而，普通自媒体创作者与技术博主在封面制作上面临以下痛点：
